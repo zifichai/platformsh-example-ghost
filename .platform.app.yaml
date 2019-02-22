@@ -40,7 +40,6 @@ hooks:
             echo "content directory does not exist, copying from source"
             cp -R tmp/content ghost
         fi
-        rm -rf tmp/content
 
 # File mounts
 mounts:
