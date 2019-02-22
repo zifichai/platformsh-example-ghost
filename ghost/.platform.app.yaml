@@ -1,0 +1,38 @@
+# Name of the application
+name: ghost
+
+# Service type
+type: nodejs:10
+
+# Web configuration
+web:
+    commands:
+        start: "./node_modules/.bin/ghost start"
+
+    locations:
+        "/":
+            passthru: false
+            root: "ghost-app/ghost"
+            # Whether to allow files not matching a rule or not.
+            allow: true
+            rules:
+                '\.png$':
+                    allow: true
+                    expires: -1
+
+hooks:
+    build: |
+        npm install
+        ./node_modules/.bin/ghost install
+
+# File mounts
+mounts:
+    'run':
+        source: local
+        source_path: run
+    'ghost-app/ghost/content':
+        source: local
+        source_path: 'content'
+
+# File mounts storage
+disk: 512

@@ -1,0 +1,15 @@
+{
+  "name": "platformsh-template-ghost",
+  "version": "1.0.0",
+  "description": "Starter template to install Ghost on Platform.sh",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Skene",
+  "license": "ISC",
+  "dependencies": {
+    "platformsh": "^0.0.1",
+    "ghost-cli": "^1.9.9"
+  }
+}
