@@ -38,7 +38,7 @@ hooks:
             echo "content directory exists"
         else
             echo "content directory does not exist, copying from source"
-            cp -R tmp/content ghost/content
+            cp -R tmp/content ghost
         fi
         rm -rf tmp/content
 
