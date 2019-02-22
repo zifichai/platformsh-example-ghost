@@ -22,19 +22,25 @@ web:
 
 hooks:
     build: |
-
         ln -sfn node_modules/ghost ghost
         cp config/config.production.json ghost/config.production.json
 
-#        node_modules/.bin/ghost install --dir build
-#       On the first install we need to set up the content directories properly.
-#        cd run
-#        if [ ! -f .installed ]; then
-#            cd ..
-#            cp -R build/content ghost/content
-#            cd run
-#            touch .installed
-#        fi
+        # On the first install we need to set up the content directories properly. As they will be overwritten by a mount
+        # in the next phase, copy them now in case we need them.
+        mkdir tmp
+        cp -R ghost/content tmp/content
+        rm -rf ghost/content
+
+    deploy: |
+        # On the first install we need to set up the content directories properly. By this point content will be a mount,
+        # and either empty (new) or have content (installed).
+        if find ghost/content -mindepth 1 | read; then
+            echo "content directory exists"
+        else
+            echo "content directory does not exist, copying from source"
+            cp -R tmp/content ghost/content
+        fi
+        rm -rf tmp/content
 
 # File mounts
 mounts:
