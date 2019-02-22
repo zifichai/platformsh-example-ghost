@@ -2,3 +2,5 @@
 ghost/content
 ghost/node_modules
 ghost/versions
+node_modules
+ghost

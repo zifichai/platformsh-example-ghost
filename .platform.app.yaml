@@ -7,12 +7,12 @@ type: nodejs:10
 # Web configuration
 web:
     commands:
-        start: "./node_modules/.bin/ghost start"
+        start: "node_modules/.bin/ghost start"
 
     locations:
         "/":
             passthru: false
-            root: "ghost-app/ghost"
+            root: "ghost"
             # Whether to allow files not matching a rule or not.
             allow: true
             rules:
@@ -22,15 +22,26 @@ web:
 
 hooks:
     build: |
-        npm install
-        ./node_modules/.bin/ghost install
+
+        ln -sfn node_modules/ghost ghost
+        cp config/config.production.json ghost/config.production.json
+
+#        node_modules/.bin/ghost install --dir build
+#       On the first install we need to set up the content directories properly.
+#        cd run
+#        if [ ! -f .installed ]; then
+#            cd ..
+#            cp -R build/content ghost/content
+#            cd run
+#            touch .installed
+#        fi
 
 # File mounts
 mounts:
     'run':
         source: local
         source_path: run
-    'ghost-app/ghost/content':
+    'ghost/content':
         source: local
         source_path: 'content'
 

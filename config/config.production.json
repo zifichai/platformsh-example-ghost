@@ -1,0 +1,28 @@
+{
+  "url": "127.0.0.1",
+  "server": {
+    "port": 80,
+    "host": "127.0.0.1"
+  },
+  "database": {
+    "client": "mysql",
+    "connection": {
+      "host": "primary.internal",
+      "user": "user",
+      "database": "main"
+    }
+  },
+  "mail": {
+    "transport": "Direct"
+  },
+  "logging": {
+    "transports": [
+      "file",
+      "stdout"
+    ]
+  },
+  "process": "systemd",
+  "paths": {
+    "contentPath": "/app/build/content"
+  }
+}
