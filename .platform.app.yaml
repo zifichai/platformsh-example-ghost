@@ -9,7 +9,7 @@ dependencies:
 
 # Services
 relationships:
-    database: 'mysqldb:primary'
+    database: 'primary:mysql'
 
 # Web configuration
 web:
