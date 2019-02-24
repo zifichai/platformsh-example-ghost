@@ -16,10 +16,12 @@
     "transport": "Direct"
   },
   "logging": {
-    "transports": [
-      "file",
-      "stdout"
-    ]
+    "level": "info",
+    "path": "content/logs/",
+    "rotation": {
+      "enabled": false,
+    },
+    "transports": ["stdout", "file"]
   },
   "process": "systemd",
   "paths": {

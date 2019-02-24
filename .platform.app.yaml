@@ -3,11 +3,14 @@ name: ghost
 
 # Service type
 type: nodejs:10
+dependencies:
+    nodejs:
+        pm2: "^2.5.0"
 
 # Web configuration
 web:
     commands:
-        start: "node_modules/.bin/ghost start"
+        start: "PM2_HOME=$PLATFORM_APP_DIR/run pm2 start ghost/index.js --no-daemon"
 
     locations:
         "/":
