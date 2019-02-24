@@ -13,12 +13,13 @@ web:
         "/":
             passthru: false
             root: "ghost"
-            # Whether to allow files not matching a rule or not.
+            # Public files
             allow: true
             rules:
-                '\.png$':
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
                     allow: true
-                    expires: -1
+                ^/robots\.txt$:
+                    allow: true
 
 hooks:
     build: |
@@ -32,6 +33,8 @@ hooks:
         rm -rf ghost/content
 
     deploy: |
+        export NODE_ENV=production
+
         # On the first install we need to set up the content directories properly. By this point content will be a mount,
         # and either empty (new) or have content (installed).
         if find ghost/content -mindepth 1 | read; then
