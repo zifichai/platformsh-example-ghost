@@ -1,7 +1,7 @@
 {
-  "url": "https://master-7rqtwti-6mezpmp2g4qd4.au.platformsh.site/",
+  "url": "https://pm2-lofgugi-6mezpmp2g4qd4.au.platformsh.site/",
   "server": {
-    "port": 2368,
+    "port": 80,
     "host": "127.0.0.1"
   },
   "database": {
@@ -17,9 +17,11 @@
   },
   "logging": {
     "level": "info",
-    "path": "content/logs/",
+    "path": "/app/ghost/content/logs/",
     "rotation": {
-      "enabled": false,
+      "enabled": true,
+      "count": 15,
+      "period": "1d"
     },
     "transports": ["stdout", "file"]
   },
