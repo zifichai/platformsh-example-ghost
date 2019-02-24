@@ -7,6 +7,10 @@ dependencies:
     nodejs:
         pm2: "^2.5.0"
 
+# Services
+relationships:
+    database: 'mysqldb:primary'
+
 # Web configuration
 web:
     commands:
