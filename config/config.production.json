@@ -7,7 +7,8 @@
   "database": {
     "client": "mysql",
     "connection": {
-      "host": "primary.internal",
+      "host": "database.internal",
+      "port": "3306",
       "user": "user",
       "database": "main"
     }
