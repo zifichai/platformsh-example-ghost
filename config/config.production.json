@@ -10,7 +10,8 @@
       "host": "database.internal",
       "port": "3306",
       "user": "user",
-      "database": "main"
+      "database": "main",
+      "password": ""
     }
   },
   "mail": {
