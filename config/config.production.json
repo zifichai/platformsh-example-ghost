@@ -1,7 +1,7 @@
 {
-  "url": "127.0.0.1",
+  "url": "https://master-7rqtwti-6mezpmp2g4qd4.au.platformsh.site/",
   "server": {
-    "port": 80,
+    "port": 2368,
     "host": "127.0.0.1"
   },
   "database": {
@@ -23,6 +23,6 @@
   },
   "process": "systemd",
   "paths": {
-    "contentPath": "/app/build/content"
+    "contentPath": "/app/ghost/content"
   }
 }
