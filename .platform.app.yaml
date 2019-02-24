@@ -10,7 +10,7 @@ dependencies:
 # Web configuration
 web:
     commands:
-        start: "PM2_HOME=$PLATFORM_APP_DIR/run pm2 start ghost/index.js --no-daemon"
+        start: "NODE_ENV=production PM2_HOME=$PLATFORM_APP_DIR/run pm2 start ghost/index.js --no-daemon"
 
     locations:
         "/":
@@ -36,8 +36,6 @@ hooks:
         rm -rf ghost/content
 
     deploy: |
-        export NODE_ENV=production
-
         # On the first install we need to set up the content directories properly. By this point content will be a mount,
         # and either empty (new) or have content (installed).
         if find ghost/content -mindepth 1 | read; then
