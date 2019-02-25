@@ -21,10 +21,9 @@ web:
     commands:
         start: |
             export NODE_ENV=production
-            PM2_HOME=$PLATFORM_APP_DIR/run
+            export PM2_HOME=$PLATFORM_APP_DIR/run
             cd ghost
             pm2 start index.js --no-daemon
-
 
     locations:
         "/":
