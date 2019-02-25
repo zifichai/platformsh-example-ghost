@@ -18,9 +18,8 @@ web:
     commands:
         start: |
             export NODE_ENV=production
-            DEBUG=ghost:*,ghost-config
             cd ghost
-            node index.js
+            exec node index.js
 
     locations:
         "/":
