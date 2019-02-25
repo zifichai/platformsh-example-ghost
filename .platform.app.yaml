@@ -16,7 +16,10 @@ relationships:
 
 web:
     commands:
-        start: "DEBUG=ghost:*,ghost-config NODE_ENV=production node ghost/index.js"
+        start: |
+            export NODE_ENV=production
+            DEBUG=ghost:*,ghost-config
+            node ghost/index.js
 
     locations:
         "/":
