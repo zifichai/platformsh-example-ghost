@@ -17,7 +17,7 @@ relationships:
 web:
     commands:
         start: |
-#            export NODE_ENV=production
+            # export NODE_ENV=production
             DEBUG=ghost:*,ghost-config
             node ghost/index.js
 
