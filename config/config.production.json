@@ -1,5 +1,4 @@
 {
-  "url": "https://pm2-lofgugi-6mezpmp2g4qd4.au.platformsh.site/",
   "server": {
     "socket": "/run/app.sock"
   },
