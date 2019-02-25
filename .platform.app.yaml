@@ -19,7 +19,7 @@ web:
         start: |
             export NODE_ENV=production
             cd ghost
-            server__port=8888 exec node index.js
+            exec node index.js
 
     locations:
         "/":
