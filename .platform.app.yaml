@@ -19,7 +19,7 @@ web:
         start: |
             export NODE_ENV=production
             cd ghost
-            ghost start
+            exec node index.js
 
     locations:
         "/":
