@@ -12,14 +12,19 @@ relationships:
     database: 'primary:mysql'
 
 # Web configuration
-#        start: "DEBUG=ghost:*,ghost-config NODE_ENV=production PM2_HOME=$PLATFORM_APP_DIR/run pm2 start ghost/index.js --no-daemon"
+#        start: |
+#            export NODE_ENV=production
+#            cd ghost
+#            exec node index.js
 
 web:
     commands:
         start: |
             export NODE_ENV=production
+            PM2_HOME=$PLATFORM_APP_DIR/run
             cd ghost
-            exec node index.js
+            pm2 start index.js --no-daemon"
+
 
     locations:
         "/":
