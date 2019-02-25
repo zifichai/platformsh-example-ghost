@@ -2,7 +2,7 @@
 name: ghost
 
 # Service type
-type: nodejs:10
+type: nodejs:8.9
 dependencies:
     nodejs:
         pm2: "^2.5.0"
