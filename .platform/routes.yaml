@@ -1,3 +1,6 @@
 "https://{default}/":
   type: upstream
   upstream: "ghost:http"
+"http://{default}/":
+  type: upstream
+  upstream: "ghost:http"
